@@ -4,6 +4,7 @@ import restauranfood  from "../images/restauranfood.jpg";
 import greekSalad from "../images/greek.jpg";
 import bruchetta from "../images/bruchetta.svg";
 import dessert from "../images/dessert.jpg";
+import delivery from "../images/delivery.png"
 
 export default function Main (){
     return (
@@ -11,8 +12,6 @@ export default function Main (){
             <HeroSection/>
             <Specials/>
            </section>
-             
-       
     )
 };
 
@@ -20,7 +19,10 @@ export default function Main (){
 function HeroSection (){
     return (
         <div className="hero-desc">
-           <h1 className="hero-title">Little Lemon</h1>
+            <div className="container">
+                <div className="hero-content">
+                <div className="hero-textcontent">
+            <h1 className="hero-title">Little Lemon</h1>
             <h3 className="sub-title">Chicago</h3>
             <p className="hero-description">
                 Lorem ipsum dolor sit amet, consectetur
@@ -28,7 +30,12 @@ function HeroSection (){
              magna aliqua.
              </p>
              <Button text={"Reserve a table"}/>
+             </div>
+             <div className="hero-img">
              <img src={restauranfood} alt="restauranfood" className="restauranfood"/>
+          </div>
+          </div>
+          </div>
           </div>
     )
 };
@@ -56,27 +63,33 @@ function Specials (){
 ]
 
     const listCards = dishes.map(dish =>
-      <li key={dish.id}>
-          <div>
-            <img src={dish.imgUrl} alt="dishes" width={170} height={250}/>
-          <b>{dish.name}</b>
-          <p>
+      <li key={dish.id} className="card">
+          <div className="card-header" >
+            <img src={dish.imgUrl} alt="dishes" width={265} height={185} />
+          </div>
+          <div className="card-main">
+          <div className="dish-name-price">
+          <p className="dish-name">{dish.name}</p>
+          <p className="dish-price"> $ {dish.price}</p>
+          </div>
+          <p className="dish-description">
             {dish.description}
           </p>
-          <p>
-          $ {dish.price}
-          </p>
-          <Button text={"Order a delivery"}/>
+          </div>
+          <div className="card-footer">
+          <a href="/" className="button-delivery">Order a delivery</a>
+          <img src={delivery} alt="delivery" width={16} height={10}/>
         </div>
       </li>
     );
 
     return(
-    <div className="specials-title">
+        <div className="container">
+          <div className="specials-title">
              <h3>This week specials!</h3>
              <Button text={"Online Menu"}/>
-             <ul>{listCards}</ul>
-
+             </div>
+            <ul className="cards">{listCards}</ul>             
     </div>
     )
 };
