@@ -4,13 +4,17 @@ import restauranfood  from "../images/restauranfood.jpg";
 import greekSalad from "../images/greek.jpg";
 import bruchetta from "../images/bruchetta.svg";
 import dessert from "../images/dessert.jpg";
-import delivery from "../images/delivery.png"
+import delivery from "../images/delivery.png";
+import picture from "../images/picture.png";
+import aboutPhoto from "../images/img1.png";
 
 export default function Main (){
     return (
          <section>
             <HeroSection/>
             <Specials/>
+            <Testimonials/>
+            <DescriptionSection/>
            </section>
     )
 };
@@ -89,7 +93,71 @@ function Specials (){
              <h3>This week specials!</h3>
              <Button text={"Online Menu"}/>
              </div>
-            <ul className="cards">{listCards}</ul>             
+            <ul className="cards">{listCards}</ul>
     </div>
     )
 };
+ function Testimonials (){
+    const reviews = [{
+        id:0,
+        name:'User 1',
+        imgUrl:picture,
+        review:'Review text'
+    },
+    {
+        id:1,
+        name:'User 2',
+        imgUrl:picture,
+        review:'Review text'
+    },
+    {
+        id:2,
+        name:'User 3',
+        imgUrl:picture,
+        review:'Review text'
+    },
+    {
+        id:3,
+        name:'User 4',
+        imgUrl:picture,
+        review:'Review text'
+    }]
+
+    const listTest = reviews.map(review =>
+        <li key={review.id} className="card-test">
+            <p className="rating">
+                Rating
+            </p>
+            <div className="user-test">
+                <img src={picture} alt="user" width={47} heigh={46}/>
+                <p className="user-name">{review.name}</p>
+            </div>
+            <p className="review-test" >{review.review}</p>
+        </li>
+    );
+    return(
+        <div className="testimonials">
+            <div className="container">
+                <h3 className="test-section">Testimonials</h3>
+                <ul className="listTestcard">{listTest}</ul>
+            </div>
+        </div>
+    )
+ }
+
+ function DescriptionSection (){
+    return (
+        <div className="about container">
+        <div className="about-desc ">
+            <h2 className="about-title">Little Lemon</h2>
+            <h4 className="about-subtitle">Chicago</h4>
+            <p className="about-desc">
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+            Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
+            duis enim velit mollit. </p>
+            </div>
+            <img src={aboutPhoto} alt="dishes" className="about-img"/>
+</div>
+    )
+ }
