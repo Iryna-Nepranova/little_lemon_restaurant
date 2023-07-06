@@ -15,12 +15,11 @@ export default function Main (){
             <Specials/>
             <Testimonials/>
             <DescriptionSection/>
-           </section>
+         </section>
     )
 };
 
-
-function HeroSection (){
+export function HeroSection (){
     return (
         <div className="hero-desc">
             <div className="container">
@@ -43,7 +42,7 @@ function HeroSection (){
           </div>
     )
 };
-function Specials (){
+export function Specials (){
     const dishes =[{
         id:0,
         imgUrl:greekSalad,
@@ -97,7 +96,7 @@ function Specials (){
     </div>
     )
 };
- function Testimonials (){
+export function Testimonials (){
     const reviews = [{
         id:0,
         name:'User 1',
@@ -145,7 +144,7 @@ function Specials (){
     )
  }
 
- function DescriptionSection (){
+export function DescriptionSection (){
     return (
         <div className="about container">
         <div className="about-desc ">
