@@ -87,13 +87,13 @@ export function Specials (){
     );
 
     return(
-        <div className="container">
+        <div className="container specials-section">
           <div className="specials-title">
              <h3>This week specials!</h3>
              <Button text={"Online Menu"}/>
              </div>
             <ul className="cards">{listCards}</ul>
-    </div>
+          </div>
     )
 };
 export function Testimonials (){

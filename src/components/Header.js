@@ -2,8 +2,9 @@ import React from "react";
 import { ReactComponent as Logo } from '../images/Logo.svg';
 import { Routes, Route, Link } from 'react-router-dom'; 
 import { DescriptionSection,
-         Specials
+         Specials,
         } from './Main';
+import { BookingForm } from './pages/BookingPage';
 
 
 export default function Header (){
@@ -23,7 +24,7 @@ export default function Header (){
         <Routes>
             <Route path="/about" element={<DescriptionSection/>}/>
             <Route path="/menu" element={<Specials/>}/>
-
+            <Route path="/reservation" element={<BookingForm/>}/>
         </Routes>
         </div>
     )
