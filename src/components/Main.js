@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import restauranfood  from "../images/restauranfood.jpg";
 import greekSalad from "../images/greek.jpg";
@@ -6,7 +7,9 @@ import bruchetta from "../images/bruchetta.svg";
 import dessert from "../images/dessert.jpg";
 import delivery from "../images/delivery.png";
 import picture from "../images/picture.png";
-import aboutPhoto from "../images/img1.png";
+import aboutPhoto from "../images/img1.jpg";
+import stars from "../images/example-stars.png";
+import aboutPhotoSecond from "../images/img2.jpg"
 
 export default function Main (){
     return (
@@ -32,7 +35,7 @@ export function HeroSection (){
              adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
              magna aliqua.
              </p>
-             <Button text={"Reserve a table"}/>
+             <Link to="/reservation"><Button className="button" text={"Reserve a table"} aria-label="On Click"/></Link>
              </div>
              <div className="hero-img">
              <img src={restauranfood} alt="restauranfood" className="restauranfood"/>
@@ -90,7 +93,7 @@ export function Specials (){
         <div className="container specials-section">
           <div className="specials-title">
              <h3>This week specials!</h3>
-             <Button text={"Online Menu"}/>
+             <Button text={"Online Menu"} aria-label="On Click"/>
              </div>
             <ul className="cards">{listCards}</ul>
           </div>
@@ -99,34 +102,32 @@ export function Specials (){
 export function Testimonials (){
     const reviews = [{
         id:0,
-        name:'User 1',
+        name:'Samanta',
         imgUrl:picture,
-        review:'Review text'
+        review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
     },
     {
         id:1,
-        name:'User 2',
+        name:'Karl',
         imgUrl:picture,
-        review:'Review text'
+        review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
     },
     {
         id:2,
-        name:'User 3',
+        name:'David',
         imgUrl:picture,
-        review:'Review text'
+        review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
     },
     {
         id:3,
-        name:'User 4',
+        name:'Kate',
         imgUrl:picture,
-        review:'Review text'
+        review:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
     }]
 
     const listTest = reviews.map(review =>
         <li key={review.id} className="card-test">
-            <p className="rating">
-                Rating
-            </p>
+             <img src={stars} alt="stars" width={65} heigh={20}/>
             <div className="user-test">
                 <img src={picture} alt="user" width={47} heigh={46}/>
                 <p className="user-name">{review.name}</p>
@@ -151,12 +152,15 @@ export function DescriptionSection (){
             <h2 className="about-title">Little Lemon</h2>
             <h4 className="about-subtitle">Chicago</h4>
             <p className="about-desc">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
             duis enim velit mollit. </p>
             </div>
-            <img src={aboutPhoto} alt="dishes" className="about-img"/>
+            <div className="about-photo">
+            <img src={aboutPhoto} alt="dishes" className="about-img" />
+            <img src={aboutPhotoSecond} alt="dishes" className="about-second-img" />
+            </div>
 </div>
     )
  }

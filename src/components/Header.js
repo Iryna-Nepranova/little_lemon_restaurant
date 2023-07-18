@@ -4,7 +4,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { DescriptionSection,
          Specials,
         } from './Main';
-import { BookingForm } from './pages/BookingPage';
+import { BookingPage } from "./pages/BookingPage";
+import { ConfirmedBooking} from "./pages/ConfirmedBooking";
 
 
 export default function Header (){
@@ -24,7 +25,8 @@ export default function Header (){
         <Routes>
             <Route path="/about" element={<DescriptionSection/>}/>
             <Route path="/menu" element={<Specials/>}/>
-            <Route path="/reservation" element={<BookingForm/>}/>
+            <Route path="/reservation" element={<BookingPage/>}/>
+            <Route path="/confirmation" element={<ConfirmedBooking/>}/>
         </Routes>
         </div>
     )
