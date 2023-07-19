@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function BookingForm (props){
+export function BookingForm (){
 
     const [name,setName] = useState('');
     const [date,setDate] = useState('');

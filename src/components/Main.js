@@ -93,7 +93,7 @@ export function Specials (){
         <div className="container specials-section">
           <div className="specials-title">
              <h3>This week specials!</h3>
-             <Button text={"Online Menu"} aria-label="On Click"/>
+             <Link to="/onlineMenu"><Button text={"Online Menu"} aria-label="On Click"/></Link>
              </div>
             <ul className="cards">{listCards}</ul>
           </div>

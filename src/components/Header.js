@@ -1,11 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from '../images/Logo.svg';
-import { Routes, Route, Link } from 'react-router-dom'; 
-import { DescriptionSection,
-         Specials,
-        } from './Main';
-import { BookingPage } from "./pages/BookingPage";
-import { ConfirmedBooking} from "./pages/ConfirmedBooking";
+import { Link } from 'react-router-dom'; 
+
 
 
 export default function Header (){
@@ -20,14 +16,8 @@ export default function Header (){
             <li><Link to="/reservation" className="menu">Reservation</Link></li>
             <li><Link to="/order" className="menu">Order online</Link></li>
             <li><Link to="/login" className="menu">Login</Link></li>
-            </ul>
+         </ul>
         </nav>
-        <Routes>
-            <Route path="/about" element={<DescriptionSection/>}/>
-            <Route path="/menu" element={<Specials/>}/>
-            <Route path="/reservation" element={<BookingPage/>}/>
-            <Route path="/confirmation" element={<ConfirmedBooking/>}/>
-        </Routes>
         </div>
     )
 };
