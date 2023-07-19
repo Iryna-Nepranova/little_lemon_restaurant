@@ -5,15 +5,25 @@ import { fetchAPI} from "../BookingAPI";
 
 
 
-export const BookingPage = () =>{
+export const BookingPage = ( ) =>{
    
-    const updateTimes = (date) =>{
-        return (
-           fetchAPI(date)
-        );
+    const updateTimes = (state, action) =>{
+        switch (action.type) {
+            case 'addTimes':
+              const newDate = new Date(action.payload)
+              return (
+                fetchAPI(newDate)
+              )
+            default:
+              return state
+          }
     };
-    const initializeTimes = fetchAPI(new Date());
-    const [availableTimes, dispatch] = useReducer (updateTimes,initializeTimes);
+    const initializeTimes = () => { 
+        return (
+            fetchAPI(new Date())
+        )
+    }
+    const [availableTimes, dispatch] = useReducer (updateTimes,initializeTimes());
 
     return(
      <div className="reservation-section">

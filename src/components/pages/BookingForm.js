@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function BookingForm (){
+export function BookingForm ({ availableTimes = []}){
 
     const [name,setName] = useState('');
     const [date,setDate] = useState('');
@@ -9,16 +9,14 @@ export function BookingForm (){
     const [number, setNumber] = useState('');
     const [occasion, setOccasion] = useState('');
     const [email,setEmail] = useState('');
+    
 
-  let navigate = useNavigate ();
-  const handleSubmit = (e)=> {
+    let navigate = useNavigate ();
+    const handleSubmit = (e)=> {
       // Prevent the browser from reloading the page
       e.preventDefault();
-      navigate('/confirmation');
-      
+      navigate('/confirmation');      
     }
-
-
 
     return(
         <div className="reservation">
@@ -40,20 +38,17 @@ export function BookingForm (){
                      className="input-reservation"
                      required
                      value={date}
-                     onChange={(e)=>setDate(e.target.value)}/>
+                     onChange={(e) => {setDate(e.target.value);}}/>
              </div>
              <div className='form-reservation'>
               <label htmlFor="res-time" className="label-reservation">Choose time</label>
               <select id="res-time"
                       className="input-reservation"
                       value={time}
-                      onChange={(e)=>setTime(e.target.value)}>
-                <option>17:00</option>
-                <option>18:00</option>
-                <option>19:00</option>
-                <option>20:00</option>
-                <option>21:00</option>
-                <option>22:00</option>
+                      onChange={(e) =>setTime(e.target.value)}>
+              {availableTimes.map((available) => (
+          <option key={available} value={available}>{available}</option>
+        ))}
               </select>
               </div>
               <div className='form-reservation'>
